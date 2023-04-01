@@ -1,0 +1,65 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+@use 'sass:math';
+
+body {
+	font-family: var.$font-family-base;
+	font-size: var.$font-size-base;
+	font-weight: var.$font-weight-base;
+	line-height: var.$line-height-base;
+	color: var.$text-color-base;
+}
+
+h1,
+h2,
+h3 {
+	color: #000;
+	margin-bottom: math.div(var.$gutter-base, 2);
+	line-height: var.$line-height-small;
+}
+
+h1 {
+	font-size: var.$heading-size-bigger;
+
+	@include mix.mobile-l-styles {
+		font-size: var.$heading-size-big;
+	}
+}
+
+h2 {
+	font-size: var.$heading-size-big;
+
+	@include mix.mobile-l-styles {
+		font-size: var.$heading-size-small;
+	}
+}
+
+h3 {
+	font-size: var.$heading-size-tiny;
+}
+
+ul {
+	line-height: 2;
+	list-style-type: circle;
+}
+
+.btn {
+	display: inline-block;
+	color: var.$text-color-secondary;
+	background-color: var.$background-color-primary;
+	padding: math.div(var.$gutter-base, 2);
+	text-decoration: none;
+	border-radius: 5px;
+	font-weight: var.$font-weight-bold;
+	&:hover {
+		background-color: transparent;
+		color: var.$background-color-primary;
+		cursor: pointer;
+		outline: 1px solid var.$background-color-primary;
+	}
+}
+.icon i {
+	color: var.$background-color-primary;
+	font-size: var.$heading-size-bigger;
+	margin-bottom: 5px;
+}

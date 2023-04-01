@@ -1,0 +1,41 @@
+@use '../abstracts/mixins' as mix;
+@use '../abstracts/variables' as var;
+@use 'sass:math';
+
+.text-block-media {
+	@extend %section;
+	@extend %wrap;
+
+	.wrap {
+		display: flex;
+		@include mix.mobile-l-styles {
+			flex-direction: column;
+		}
+
+		.text-div {
+			flex-basis: 50%;
+			padding-right: var.$gutter-base * 2.5;
+			@include mix.mobile-l-styles {
+				padding-right: 0;
+				margin-bottom: var.$gutter-base;
+			}
+
+			h2 {
+				font-size: var.$heading-size-small;
+			}
+
+			p,
+			ul {
+				font-size: var.$font-size-small;
+			}
+
+			span {
+				font-weight: var.$font-weight-bold;
+			}
+		}
+
+		.image-div {
+			flex-basis: 50%;
+		}
+	}
+}
